@@ -36,7 +36,7 @@ class MicroservicesApplicationTests {
     void saveUser() {
         RequestSpecification request = given();
         request.header("content-type", MediaType.APPLICATION_JSON_VALUE);
-        request.body(new User(4, "Jack", LocalDate.now()));
+        request.body(new User(4, "Jack", LocalDate.now(), null));
         Response response = request.post("/users").andReturn();
         assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
         String location = response.getHeader("location");
